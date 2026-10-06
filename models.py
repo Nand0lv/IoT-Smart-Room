@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, Float, Boolean, DateTime
 from sqlalchemy.sql import func
 from database import Base
-import datetime
 
 class SensorRecord(Base):
     __tablename__ = "sensor_records"

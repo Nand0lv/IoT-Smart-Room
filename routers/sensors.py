@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 import schemas
 import crud
 from database import SessionLocal
+from typing import List
 
 router = APIRouter()
 
@@ -24,3 +25,9 @@ async def receive_data(data: schemas.SensorData, db: Session = Depends(get_db)):
         "message": "Data saved successfully!", 
         "record_id": new_record.id
     }
+
+#the response will be a List of SensorResponse schema
+@router.get("/data", response_model=List[schemas.SensorResponse])
+async def read_data(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    records = crud.get_sensor_records(db, skip=skip, limit=limit)
+    return records
