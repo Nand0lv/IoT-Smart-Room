@@ -8,4 +8,5 @@ class SensorRecord(Base):
     #Columns
     id = Column(Integer, primary_key=True, index=True)
     temperature = Column(Float)
+    humidity = Column(Float)
     timestamp = Column(DateTime, default=func.now()) #records when it was saved

@@ -4,6 +4,7 @@ from datetime import datetime
 #this is the information that we get from ESP-32
 class SensorData(BaseModel):
     temperature: float
+    humidity: float
 
 class SensorResponse(SensorData):
     id: int

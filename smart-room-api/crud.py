@@ -5,7 +5,8 @@ import schemas
 def create_sensor_record(db: Session, data: schemas.SensorData):
     #creates a new database record using the model from models.py
     db_record = models.SensorRecord(
-        temperature=data.temperature
+        temperature=data.temperature,
+        humidity= data.humidity
     )
     db.add(db_record)#add changes
     db.commit()#save changes
